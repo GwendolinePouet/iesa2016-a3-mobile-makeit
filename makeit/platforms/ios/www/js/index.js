@@ -31,6 +31,7 @@ var app = {
 
          function onSuccess(contacts) {
             $('#name').html(contacts[0].name.givenName + ' ' + contacts[0].name.familyName);
+            $('#numero').html(contacts[0].phoneNumbers[0].value);
          };
 
          function onError(contactError) {
@@ -40,7 +41,7 @@ var app = {
          //find all contacts
          var options = new ContactFindOptions();
          options.filter = finder;
-         var fields = ["displayName", "name"];
+         var fields = ["displayName", "name", "phoneNumbers"];
          navigator.contacts.find(fields, onSuccess, onError, options);
       });
    },
