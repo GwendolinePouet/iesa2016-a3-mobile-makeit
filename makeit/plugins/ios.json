@@ -9,6 +9,15 @@
     "installed_plugins": {
         "cordova-plugin-whitelist": {
             "PACKAGE_NAME": "com.makeit.cordova"
+        },
+        "cordova-plugin-camera": {
+            "PACKAGE_NAME": "com.makeit.cordova"
+        },
+        "cordova-plugin-contacts": {
+            "PACKAGE_NAME": "com.makeit.cordova"
+        },
+        "cordova-plugin-geolocation": {
+            "PACKAGE_NAME": "com.makeit.cordova"
         }
     },
     "dependent_plugins": {}
