@@ -24,6 +24,10 @@ var app = {
       //Call function for profil picture
       app.profilPicture();
       app.findContacts();
+      //Call Geolocation feature
+      $('#geolocation-btn').click(function () {
+         app.geolocationTuto();
+      });
    },
 
    //Starter photo
@@ -90,7 +94,37 @@ var app = {
    },
    //-----------------------------------
    // END starter photo
+   //Starter Geolocation
+   //---------------------------
+   geolocationTuto: function () {
 
+
+        navigator.geolocation.getCurrentPosition(geolocationSuccess, onGeolocError);
+
+
+       //onSuccess Geolocation
+       
+       function geolocationSuccess(position) {
+           var element = document.getElementById('geolocation');
+           element.innerHTML = 'Latitude: '           + position.coords.latitude              + '<br />' +
+                               'Longitude: '          + position.coords.longitude             + '<br />' +
+                               'Altitude: '           + position.coords.altitude              + '<br />' +
+                               'Accuracy: '           + position.coords.accuracy              + '<br />' +
+                               'Altitude Accuracy: '  + position.coords.altitudeAccuracy      + '<br />' +
+                               'Heading: '            + position.coords.heading               + '<br />' +
+                               'Speed: '              + position.coords.speed                 + '<br />' +
+                               'Timestamp: '          + position.timestamp                    + '<br />';
+       };
+
+       // onError Callback receives a PositionError object
+       //
+       function onGeolocError(error) {
+           alert('code: '    + error.code    + '\n' +
+                 'message: ' + error.message + '\n');
+       };
+   },
+   //---------------------------
+   //End Starter Geolocation
    //Starter Contacts
    findContacts: function () {
 
