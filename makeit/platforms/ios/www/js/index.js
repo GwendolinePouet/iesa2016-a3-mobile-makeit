@@ -25,42 +25,42 @@ var app = {
 
    //Starter Contacts
    findContacts: function () {
-      $('#findButton').click(function () {
-
-         // tableau (base donnee) des numeros des utilisateurs enregistre
-         var listNumber = ["0663567765", "0663567765", "0663567767", "0663567768", "0663567769", "0663567770", "0642800988", "0686616325", "0679100093", "0660619149"];
-
-         //lecture de tout le tab
-         for (var i = 0; i < listNumber.length; i++) {
-            var finder = listNumber[i];
 
 
-            function onSuccess(contacts) {
-               var text = '';
+      // tableau (base donnee) des numeros des utilisateurs enregistre
+      var listNumber = ["0663567765", "0663567767", "0663567768", "0663567769", "0663567770", "0642800988", "0686616325", "0679100093", "0660619149"];
 
-               if (!!contacts[0].name.givenName) {
-                  text = contacts[0].name.givenName;
-               }
+      $('.titrelistcontacts').text("Liste de vos contacts utilisant l'application");
 
-               if (!!contacts[0].name.familyName) {
-                  text = text + ' ' + contacts[0].name.familyName;
-               }
+      //lecture de tout le tab
+      for (var i = 0; i < listNumber.length; i++) {
+         var finder = listNumber[i];
 
-               $('#list').append("<li>" + text + ' | ' + contacts[0].phoneNumbers[0].value + "</li>");
-            };
+         function onSuccess(contacts) {
+            var text = '';
 
-            function onError(contactError) {
-               alert('onError!');
-            };
+            if (!!contacts[0].name.givenName) {
+               text = contacts[0].name.givenName;
+            }
 
-            //find all contacts
-            var options = new ContactFindOptions();
-            options.filter = finder;
-            var fields = ["displayName", "name", "phoneNumbers"];
-            navigator.contacts.find(fields, onSuccess, onError, options);
+            if (!!contacts[0].name.familyName) {
+               text = text + ' ' + contacts[0].name.familyName;
+            }
 
-         }
-      });
+            $('#list').append("<li>" + text + ' | ' + contacts[0].phoneNumbers[0].value + "</li>");
+            $('.nombrelistcontacts').text($('#list li').length + " de vos contacts utilisent l'application.");
+         };
+
+         function onError(contactError) {
+            alert('onError!');
+         };
+
+         //find all contacts
+         var options = new ContactFindOptions();
+         options.filter = finder;
+         var fields = ["displayName", "name", "phoneNumbers"];
+         navigator.contacts.find(fields, onSuccess, onError, options);
+      }
    },
    //End Contacts
 
