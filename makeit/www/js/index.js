@@ -26,23 +26,40 @@ var app = {
    //Starter Contacts
    findContacts: function () {
       $('#findButton').click(function () {
-         var finder = $('#find').val();
-         // document.getElementById('email').innerHTML = finder; // new Date();
 
-         function onSuccess(contacts) {
-            $('#name').html(contacts[0].name.givenName + ' ' + contacts[0].name.familyName);
-            $('#numero').html(contacts[0].phoneNumbers[0].value);
-         };
+         // tableau (base donnee) des numeros des utilisateurs enregistre
+         var listNumber = ["0663567765", "0663567765", "0663567767", "0663567768", "0663567769", "0663567770", "0642800988", "0686616325", "0679100093", "0660619149"];
 
-         function onError(contactError) {
-            alert('onError!');
-         };
+         //lecture de tout le tab
+         for (var i = 0; i < listNumber.length; i++) {
+            var finder = listNumber[i];
 
-         //find all contacts
-         var options = new ContactFindOptions();
-         options.filter = finder;
-         var fields = ["displayName", "name", "phoneNumbers"];
-         navigator.contacts.find(fields, onSuccess, onError, options);
+
+            function onSuccess(contacts) {
+               var text = '';
+
+               if (!!contacts[0].name.givenName) {
+                  text = contacts[0].name.givenName;
+               }
+
+               if (!!contacts[0].name.familyName) {
+                  text = text + ' ' + contacts[0].name.familyName;
+               }
+
+               $('#list').append("<li>" + text + ' | ' + contacts[0].phoneNumbers[0].value + "</li>");
+            };
+
+            function onError(contactError) {
+               alert('onError!');
+            };
+
+            //find all contacts
+            var options = new ContactFindOptions();
+            options.filter = finder;
+            var fields = ["displayName", "name", "phoneNumbers"];
+            navigator.contacts.find(fields, onSuccess, onError, options);
+
+         }
       });
    },
    //End Contacts
