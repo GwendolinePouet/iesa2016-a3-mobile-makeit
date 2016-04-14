@@ -7,19 +7,23 @@
    <meta name="msapplication-tap-highlight" content="no">
    <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width">
    <link rel="stylesheet" type="text/css" href="css/index.css">
-   <title>Hello World</title>
+   <title>MakeIT</title>
 </head>
 
 <body>
    <div class="app">
-      <img src="img/logo.png" alt="#">
-      <h1>Apache Cordova</h1>
-      <div id="deviceready" class="blink">
-         <p class="event listening">Connecting to Device</p>
-         <p class="event received">Device is Ready</p>
-      </div>
-      <!-- STARTER PHOTO -->
       <div class="container">
+
+
+         <!-- section device ready -->
+         <img src="img/logo.png" alt="#">
+         <h1>MakeIT</h1>
+         <div id="deviceready" class="blink">
+            <p class="event listening">Oups</p>
+            <p class="event received">Is Ready</p>
+         </div>
+
+         <!-- debut plugin camera -->
          <div class="camera-box">
             <button id="ProfilPicture" class="picture-btn">Ajouter une photo de profil</button>
             <button id="CameraShot" class="picture-btn hide-btn">Prendre une photo</button>
@@ -29,11 +33,13 @@
             <img id="Image" src="" style="display:none;width:100%;">
          </div>
 
-         <!-- Starter contacts -->
+         <!-- Lien page contact -->
          <a href="contact.html" id="findButton" class="buttonlink">Trouver mes amis</a>
+
       </div>
-      <!-- End contacts -->
+      <!-- fin container -->
    </div>
+   <!-- fin app -->
 
    <script type="text/javascript" src="js/jquery-2.2.3.min.js"></script>
    <script type="text/javascript" src="cordova.js"></script>
