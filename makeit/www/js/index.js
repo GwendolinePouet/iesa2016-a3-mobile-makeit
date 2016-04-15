@@ -99,69 +99,81 @@ var app = {
    geolocationTuto: function () {
 
 
-        navigator.geolocation.getCurrentPosition(geolocationSuccess, onGeolocError);
+      navigator.geolocation.getCurrentPosition(geolocationSuccess, onGeolocError);
 
 
-       //onSuccess Geolocation
-       
-       function geolocationSuccess(position) {
-           var element = document.getElementById('geolocation');
-           element.innerHTML = 'Latitude: '           + position.coords.latitude              + '<br />' +
-                               'Longitude: '          + position.coords.longitude             + '<br />' +
-                               'Altitude: '           + position.coords.altitude              + '<br />' +
-                               'Accuracy: '           + position.coords.accuracy              + '<br />' +
-                               'Altitude Accuracy: '  + position.coords.altitudeAccuracy      + '<br />' +
-                               'Heading: '            + position.coords.heading               + '<br />' +
-                               'Speed: '              + position.coords.speed                 + '<br />' +
-                               'Timestamp: '          + position.timestamp                    + '<br />';
-       };
+      //onSuccess Geolocation
 
-       // onError Callback receives a PositionError object
-       //
-       function onGeolocError(error) {
-           alert('code: '    + error.code    + '\n' +
-                 'message: ' + error.message + '\n');
-       };
+      function geolocationSuccess(position) {
+         var element = document.getElementById('geolocation');
+         element.innerHTML = 'Latitude: ' + position.coords.latitude + '<br />' +
+            'Longitude: ' + position.coords.longitude + '<br />' +
+            'Altitude: ' + position.coords.altitude + '<br />' +
+            'Accuracy: ' + position.coords.accuracy + '<br />' +
+            'Altitude Accuracy: ' + position.coords.altitudeAccuracy + '<br />' +
+            'Heading: ' + position.coords.heading + '<br />' +
+            'Speed: ' + position.coords.speed + '<br />' +
+            'Timestamp: ' + position.timestamp + '<br />';
+      };
+
+      // onError Callback receives a PositionError object
+      //
+      function onGeolocError(error) {
+         alert('code: ' + error.code + '\n' +
+            'message: ' + error.message + '\n');
+      };
    },
    //---------------------------
    //End Starter Geolocation
    //Starter Contacts
    findContacts: function () {
 
+      var listNumber;
+      $.ajax({
+         url: 'js/base.json',
+         success: function (data) {
+            //it works, do something with the data
+            var donnees = $.parseJSON(data);
+            listNumber = donnees.numeros;
+            displayContacts();
+         },
+         error: function () {
+            //something went wrong, handle the error and display a message
+            $('.titrelistcontacts').text("error");
+         }
+      });
 
-      // tableau (base donnee) des numeros des utilisateurs enregistre
-      var listNumber = ["0663567765", "0663567767", "0663567768", "0663567769", "0663567770", "0642800988", "0686616325", "0679100093", "0660619149"];
+      var displayContacts = function () {
+         $('.titrelistcontacts').text("Liste de vos contacts utilisant l'application");
+         //lecture de tout le tab
+         for (var i = 0; i < listNumber.length; i++) {
+            var finder = listNumber[i];
 
-      $('.titrelistcontacts').text("Liste de vos contacts utilisant l'application");
+            function onSuccess(contacts) {
+               var text = '';
 
-      //lecture de tout le tab
-      for (var i = 0; i < listNumber.length; i++) {
-         var finder = listNumber[i];
+               if (!!contacts[0].name.givenName) {
+                  text = contacts[0].name.givenName;
+               }
 
-         function onSuccess(contacts) {
-            var text = '';
+               if (!!contacts[0].name.familyName) {
+                  text = text + ' ' + contacts[0].name.familyName;
+               }
 
-            if (!!contacts[0].name.givenName) {
-               text = contacts[0].name.givenName;
-            }
+               $('#list').append("<li>" + text + ' | ' + contacts[0].phoneNumbers[0].value + "</li>");
+               $('.nombrelistcontacts').text($('#list li').length + " de vos contacts utilisent l'application.");
+            };
 
-            if (!!contacts[0].name.familyName) {
-               text = text + ' ' + contacts[0].name.familyName;
-            }
+            function onError(contactError) {
+               alert('onError!');
+            };
 
-            $('#list').append("<li>" + text + ' | ' + contacts[0].phoneNumbers[0].value + "</li>");
-            $('.nombrelistcontacts').text($('#list li').length + " de vos contacts utilisent l'application.");
-         };
-
-         function onError(contactError) {
-            alert('onError!');
-         };
-
-         //find all contacts
-         var options = new ContactFindOptions();
-         options.filter = finder;
-         var fields = ["displayName", "name", "phoneNumbers"];
-         navigator.contacts.find(fields, onSuccess, onError, options);
+            //find all contacts
+            var options = new ContactFindOptions();
+            options.filter = finder;
+            var fields = ["displayName", "name", "phoneNumbers"];
+            navigator.contacts.find(fields, onSuccess, onError, options);
+         }
       }
    },
    //End Contacts
