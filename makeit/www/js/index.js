@@ -28,8 +28,20 @@ var app = {
       $('#geolocation-btn').click(function () {
          app.geolocationTuto();
       });
+      $('.checkLang').click(function() {
+         app.langSelect();
+      });
    },
+   // GLOBALIZATION ---------------------------------------------------
 
+      langSelect: function() {
+         navigator.globalization.getPreferredLanguage(
+           function (language) {alert('language: ' + language.value + '\n'); /*$('body').attr('lang',language.value);*/},
+           function () {alert('Error getting language\n');}
+         );
+      },
+
+   // END GLOBALIZATION
    //Starter photo
    //-----------------------------------
 
