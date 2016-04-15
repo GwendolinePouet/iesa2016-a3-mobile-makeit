@@ -24,6 +24,9 @@
     <feature name="Geolocation">
         <param name="ios-package" value="CDVLocation" />
     </feature>
+    <feature name="Globalization">
+        <param name="ios-package" value="CDVGlobalization" />
+    </feature>
     <name>MakeIT</name>
     <description>
         A sample Apache Cordova application that responds to the deviceready event.

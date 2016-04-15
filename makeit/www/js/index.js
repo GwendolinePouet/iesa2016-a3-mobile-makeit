@@ -28,6 +28,9 @@ var app = {
       $('#geolocation-btn').click(function () {
          app.geolocationTuto();
       });
+      $('.checkLang').click(function () {
+         app.langSelect();
+      });
    },
 
    //Starter photo
@@ -53,6 +56,20 @@ var app = {
       });
 
    },
+   // GLOBALIZATION ---------------------------------------------------
+
+   langSelect: function () {
+      navigator.globalization.getPreferredLanguage(
+         function (language) {
+            alert('language: ' + language.value + '\n'); /*$('body').attr('lang',language.value);*/
+         },
+         function () {
+            alert('Error getting language\n');
+         }
+      );
+   },
+
+   // END GLOBALIZATION
 
    takePicture: function () {
       // Take picture using device camera and retrieve image as base64-encoded string
