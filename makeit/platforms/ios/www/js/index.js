@@ -19,6 +19,7 @@ var app = {
    // The scope of 'this' is the event. In order to call the 'receivedEvent'
    // function, we must explicitly call 'app.receivedEvent(...);'
    onDeviceReady: function () {
+      Lungo.init({});
       app.receivedEvent('deviceready');
 
       //Call function for profil picture
@@ -47,6 +48,13 @@ var app = {
    },
 
    // END GLOBALIZATION
+
+   //Load resource on app init
+   Lungo.init({
+      name: 'example',
+      resources: ['section_to_load.html']
+   });
+
    //Starter photo
    //-----------------------------------
 

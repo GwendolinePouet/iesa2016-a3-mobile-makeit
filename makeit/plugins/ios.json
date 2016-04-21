@@ -7,9 +7,6 @@
         "files": {}
     },
     "installed_plugins": {
-        "cordova-plugin-whitelist": {
-            "PACKAGE_NAME": "com.makeit.cordova"
-        },
         "cordova-plugin-camera": {
             "PACKAGE_NAME": "com.makeit.cordova"
         },
@@ -20,6 +17,9 @@
             "PACKAGE_NAME": "com.makeit.cordova"
         },
         "cordova-plugin-globalization": {
+            "PACKAGE_NAME": "com.makeit.cordova"
+        },
+        "cordova-plugin-whitelist": {
             "PACKAGE_NAME": "com.makeit.cordova"
         }
     },

@@ -172,11 +172,11 @@ module.exports = [
 module.exports.metadata = 
 // TOP OF METADATA
 {
-    "cordova-plugin-whitelist": "1.2.1",
     "cordova-plugin-camera": "2.1.1",
     "cordova-plugin-contacts": "2.0.1",
     "cordova-plugin-geolocation": "2.1.0",
-    "cordova-plugin-globalization": "1.0.3"
+    "cordova-plugin-globalization": "1.0.3",
+    "cordova-plugin-whitelist": "1.2.1"
 }
 // BOTTOM OF METADATA
 });
