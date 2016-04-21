@@ -1,4 +1,4 @@
-# iesa2016-a3-makeit
+# iesa2016-a3-mobile-makeit
 Projet Cordova développé par des étudiant de l'IESA Multimédia.
 
 ### Inspirée de la tendance "Do It Yourself", MakeIT est une application qui regroupe des centaines de tutos pour la vie de tout les jours, de quoi la rendre plus simple et plus fun ☺
@@ -17,6 +17,7 @@ Liste des membres:
 * Nicolas Heine
 * Alexis Lavigne
 
+<<<<<<< HEAD
 * Problèmes rencontrés : *
 
 | Critique      |     Plateform   |   Problème |  Solution |
@@ -27,3 +28,15 @@ Liste des membres:
 | Oui        |        Terminal        |      Problème connexion Github via terminal |     Supprimer dans le trousseau d'accés du Mac la session Git et les mots de passe liés' |
 | Oui        |        IOS        |      Problème plugin géolocalisation |     Changer la localisation dans l'émulateur Debug > Location > Apple |
 | Oui        |        IOS        |      Gestion Pod pour analytics |      |
+=======
+Problèmes rencontrés : 
+* Relier un fichier JSON externe | Il manquait la fonction error dans le .ajax
+* Gestion Pod pour analytics
+* Impossibilité de récupérer la langue du device afin de changer le contenu dynamiquement
+* Problème connexion Github via terminal | Supprimer dans le trousseau d'accés du Mac la session Git et les mots de passe liés
+* Problème plugin géolocalisation | Changer la localisation dans l'émulateur Debug > Location > Apple
+* Gestion Pod pour analytics
+
+
+
+>>>>>>> bd2a10d60171e8509aba5398507d081a948e0218
