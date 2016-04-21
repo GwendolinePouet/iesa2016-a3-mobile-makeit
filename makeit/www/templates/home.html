@@ -1,0 +1,34 @@
+<ion-view view-title="Home">
+   <ion-content>
+      <img src="img/logo.png" alt="#">
+      <h1>MakeIT</h1>
+      <div id="deviceready" class="blink">
+         <p class="event listening">Oups</p>
+         <p class="event received">Is Ready</p>
+      </div>
+
+      <!-- debut plugin camera -->
+      <div class="camera-box">
+         <button id="ProfilPicture" class="picture-btn button button-block button-stable">Ajouter une photo de profil</button>
+         <button id="CameraShot" class="picture-btn hide-btn button-block button button-stable">Prendre une photo</button>
+         <br>
+         <button id="CameraAlbum" class="picture-btn hide-btn button-block button button-stable">Importer une photo</button>
+         <br>
+         <img id="Image" src="" style="display:none;width:100%;">
+      </div>
+
+      <!-- debut plugin globalization -->
+      <div id="globalization-box">
+         <button class="checkLang button button-block button-stable">V&eacute;rifier la langue</button>
+      </div>
+
+      <!-- Starter Geolocation -->
+      <div id="geolocation-box">
+         <button id="geolocation-btn" class="button button-block button-stable">Afficher ma g&eacute;olocalisation</button>
+         <p id="geolocation"></p>
+      </div>
+      <!-- End Starter Geolocation -->
+
+
+   </ion-content>
+</ion-view>

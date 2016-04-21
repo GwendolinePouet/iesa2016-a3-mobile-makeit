@@ -7,21 +7,43 @@
         "files": {}
     },
     "installed_plugins": {
-        "cordova-plugin-camera": {
-            "PACKAGE_NAME": "com.makeit.cordova"
+        "cordova-plugin-console": {
+            "PACKAGE_NAME": "com.ionicframework.myapp252408"
         },
-        "cordova-plugin-contacts": {
-            "PACKAGE_NAME": "com.makeit.cordova"
+        "cordova-plugin-device": {
+            "PACKAGE_NAME": "com.ionicframework.myapp252408"
         },
-        "cordova-plugin-geolocation": {
-            "PACKAGE_NAME": "com.makeit.cordova"
+        "cordova-plugin-splashscreen": {
+            "PACKAGE_NAME": "com.ionicframework.myapp252408"
         },
-        "cordova-plugin-globalization": {
-            "PACKAGE_NAME": "com.makeit.cordova"
+        "cordova-plugin-statusbar": {
+            "PACKAGE_NAME": "com.ionicframework.myapp252408"
         },
         "cordova-plugin-whitelist": {
-            "PACKAGE_NAME": "com.makeit.cordova"
+            "PACKAGE_NAME": "com.ionicframework.myapp252408"
+        },
+        "ionic-plugin-keyboard": {
+            "PACKAGE_NAME": "com.ionicframework.myapp252408"
+        },
+        "cordova-plugin-camera": {
+            "PACKAGE_NAME": "com.ionicframework.myapp252408"
+        },
+        "cordova-plugin-globalization": {
+            "PACKAGE_NAME": "com.ionicframework.myapp252408"
+        },
+        "cordova-plugin-geolocation": {
+            "PACKAGE_NAME": "com.ionicframework.myapp252408"
+        },
+        "cordova-plugin-contacts": {
+            "PACKAGE_NAME": "com.ionicframework.myapp252408"
+        },
+        "cordova-plugin-network-information": {
+            "PACKAGE_NAME": "com.ionicframework.myapp252408"
         }
     },
-    "dependent_plugins": {}
+    "dependent_plugins": {
+        "cordova-plugin-compat": {
+            "PACKAGE_NAME": "com.ionicframework.myapp252408"
+        }
+    }
 }
