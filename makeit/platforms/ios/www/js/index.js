@@ -28,22 +28,23 @@ var app = {
       $('#geolocation-btn').click(function () {
          app.geolocationTuto();
       });
-<<<<<<< HEAD
-      $('.checkLang').click(function() {
-=======
+
       $('.checkLang').click(function () {
->>>>>>> bd2a10d60171e8509aba5398507d081a948e0218
          app.langSelect();
       });
    },
    // GLOBALIZATION ---------------------------------------------------
 
-      langSelect: function() {
-         navigator.globalization.getPreferredLanguage(
-           function (language) {alert('language: ' + language.value + '\n'); /*$('body').attr('lang',language.value);*/},
-           function () {alert('Error getting language\n');}
-         );
-      },
+   langSelect: function () {
+      navigator.globalization.getPreferredLanguage(
+         function (language) {
+            alert('language: ' + language.value + '\n'); /*$('body').attr('lang',language.value);*/
+         },
+         function () {
+            alert('Error getting language\n');
+         }
+      );
+   },
 
    // END GLOBALIZATION
    //Starter photo
