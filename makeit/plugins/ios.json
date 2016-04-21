@@ -84,6 +84,9 @@
         },
         "cordova-plugin-network-information": {
             "PACKAGE_NAME": "com.ionicframework.myapp252408"
+        },
+        "cordova-plugin-device-orientation": {
+            "PACKAGE_NAME": "com.ionicframework.myapp252408"
         }
     },
     "dependent_plugins": {

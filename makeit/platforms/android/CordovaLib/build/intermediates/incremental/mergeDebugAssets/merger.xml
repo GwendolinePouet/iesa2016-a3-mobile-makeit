@@ -1,2 +1,2 @@
 <?xml version="1.0" encoding="utf-8"?>
-<merger version="3"><dataSet config="main"><source path="/Applications/MAMP/htdocs/ionic_makeit/myApp/platforms/android/CordovaLib/assets"/></dataSet><dataSet config="debug"><source path="/Applications/MAMP/htdocs/ionic_makeit/myApp/platforms/android/CordovaLib/src/debug/assets"/></dataSet></merger>
+<merger version="3"><dataSet config="main"><source path="/Applications/MAMP/htdocs/iesa2016-a3-mobile-makeit/makeit/platforms/android/CordovaLib/assets"/></dataSet><dataSet config="debug"><source path="/Applications/MAMP/htdocs/iesa2016-a3-mobile-makeit/makeit/platforms/android/CordovaLib/src/debug/assets"/></dataSet></merger>

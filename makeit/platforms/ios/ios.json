@@ -59,6 +59,10 @@
                         {
                             "xml": "<feature name=\"NetworkStatus\"><param name=\"ios-package\" value=\"CDVConnection\" /></feature>",
                             "count": 1
+                        },
+                        {
+                            "xml": "<feature name=\"Compass\"><param name=\"ios-package\" value=\"CDVCompass\" /></feature>",
+                            "count": 1
                         }
                     ]
                 }
@@ -110,6 +114,9 @@
             "PACKAGE_NAME": "com.ionicframework.myapp252408"
         },
         "cordova-plugin-network-information": {
+            "PACKAGE_NAME": "com.ionicframework.myapp252408"
+        },
+        "cordova-plugin-device-orientation": {
             "PACKAGE_NAME": "com.ionicframework.myapp252408"
         }
     },
@@ -353,6 +360,30 @@
             "clobbers": [
                 "Connection"
             ]
+        },
+        {
+            "file": "plugins/cordova-plugin-device-orientation/www/CompassError.js",
+            "id": "cordova-plugin-device-orientation.CompassError",
+            "pluginId": "cordova-plugin-device-orientation",
+            "clobbers": [
+                "CompassError"
+            ]
+        },
+        {
+            "file": "plugins/cordova-plugin-device-orientation/www/CompassHeading.js",
+            "id": "cordova-plugin-device-orientation.CompassHeading",
+            "pluginId": "cordova-plugin-device-orientation",
+            "clobbers": [
+                "CompassHeading"
+            ]
+        },
+        {
+            "file": "plugins/cordova-plugin-device-orientation/www/compass.js",
+            "id": "cordova-plugin-device-orientation.compass",
+            "pluginId": "cordova-plugin-device-orientation",
+            "clobbers": [
+                "navigator.compass"
+            ]
         }
     ],
     "plugin_metadata": {
@@ -367,6 +398,7 @@
         "cordova-plugin-globalization": "1.0.3",
         "cordova-plugin-geolocation": "2.2.0",
         "cordova-plugin-contacts": "2.1.0",
-        "cordova-plugin-network-information": "1.2.1"
+        "cordova-plugin-network-information": "1.2.1",
+        "cordova-plugin-device-orientation": "1.0.3"
     }
 }

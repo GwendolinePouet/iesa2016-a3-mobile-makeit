@@ -20,6 +20,7 @@ var app = {
    // function, we must explicitly call 'app.receivedEvent(...);'
    onDeviceReady: function () {
       StatusBar.hide();
+      app.checkDeviceOrientation();
 
       document.addEventListener("offline", app.checkConnection, false);
       document.addEventListener("online", app.checkConnection, false);
@@ -157,6 +158,44 @@ var app = {
    },
    //END NETWORK INFORMATION---------------------------------
 
+   //STARTER DEVICE ORIENTATION
+   //--------------------------------------------
+
+   checkDeviceOrientation: function () {
+
+      //      navigator.compass.getCurrentHeading(compassSuccess, compassError);
+      //
+      //      function compassSuccess(heading) {
+      //         alert('Heading: ' + heading.magneticHeading);
+      //      };
+      //
+      //      function compassError(error) {
+      //         alert('CompassError: ' + error.code);
+      //      };
+
+      window.addEventListener("orientationchange", orientationChange, true);
+
+      function orientationChange(e) {
+
+         var currentOrientation = "portrait";
+
+         if (window.orientation == 0) {
+            currentOrientation = "portrait";
+         } else if (window.orientation == 90) {
+            currentOrientation = "landscape";
+         } else if (window.orientation == -90) {
+            currentOrientation = "landscape";
+         } else if (window.orientation == 180) {
+            currentOrientation = "portrait";
+         }
+
+         alert(currentOrientation);
+
+      }
+   },
+
+   //END DEVICE ORIENTATION---------------------------------
+
    //Starter Geolocation
    //---------------------------
    geolocationTuto: function () {
@@ -188,6 +227,7 @@ var app = {
    },
    //---------------------------
    //End Starter Geolocation
+
    //Starter Contacts
    findContacts: function () {
 
