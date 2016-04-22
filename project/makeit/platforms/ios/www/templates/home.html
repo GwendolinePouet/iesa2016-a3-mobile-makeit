@@ -3,25 +3,18 @@
 
       <img src="img/logo.png" alt="#">
       <h1>MakeIT</h1>
-      <div id="deviceready" class="blink">
-         <p class="event listening">Oups</p>
-         <p class="event received">Is Ready</p>
-      </div>
 
       <!-- debut video -->
-      <button id="capture-btn" class="button button-block button-stable">video</button>
+      <button id="capture-btn" class="button button-block button-stable">Ajouter une vidéo</button>
+
       <!-- Share -->
-      <button onclick="window.plugins.socialsharing.share('MakeIt, retrouvez des tutos sur la vie de tout les jours', null, 'http://reveal-up.fr/img/splash.png', null)" class="button button-block button-positive">Partager</button>
-
-
+      <button onclick="window.plugins.socialsharing.share('MakeIt, retrouvez des tutos sur la vie de tout les jours', null, 'http://reveal-up.fr/img/splash.png', null)" class="button button-block button-positive">Partager sur les réseaux sociaux</button>
 
       <!-- debut plugin camera -->
       <div class="camera-box">
          <button id="ProfilPicture" class="picture-btn button button-block button-stable">Ajouter une photo de profil</button>
          <button id="CameraShot" class="picture-btn hide-btn button-block button button-stable">Prendre une photo</button>
-         <br>
          <button id="CameraAlbum" class="picture-btn hide-btn button-block button button-stable">Importer une photo</button>
-         <br>
          <img id="Image" src="" style="display:none;width:100%;">
       </div>
 
@@ -35,7 +28,12 @@
          <button id="geolocation-btn" class="button button-block button-stable">Afficher ma g&eacute;olocalisation</button>
          <p id="geolocation"></p>
       </div>
-      <!-- End Starter Geolocation -->
+
+      <!-- Temoin -->
+      <div id="deviceready" class="blink">
+         <p class="event listening">Oups</p>
+         <p class="event received">Is Ready</p>
+      </div>
 
 
    </ion-content>

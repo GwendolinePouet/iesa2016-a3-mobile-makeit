@@ -6,36 +6,35 @@ var app = {
 
 
    // Bind Event Listeners
-   //
-   // Bind any events that are required on startup. Common events are:
-   // 'load', 'deviceready', 'offline', and 'online'.
    bindEvents: function () {
       document.addEventListener('deviceready', this.onDeviceReady, false);
    },
 
-
    // deviceready Event Handler
-   //
-   // The scope of 'this' is the event. In order to call the 'receivedEvent'
-   // function, we must explicitly call 'app.receivedEvent(...);'
    onDeviceReady: function () {
+
+      //Temoin
+      app.receivedEvent('deviceready');
+
+      //Status bar
       StatusBar.hide();
+
+      //Orientation
       app.checkDeviceOrientation();
 
+      //Network
       document.addEventListener("offline", app.checkConnection, false);
       document.addEventListener("online", app.checkConnection, false);
 
-
-      app.receivedEvent('deviceready');
-
-      //Call function for profil picture
+      //Photo
       app.profilPicture();
 
-
+      //Contact
       $('#contact-btn').click(function () {
          app.findContacts();
       });
 
+      //Video
       $('#capture-btn').click(function () {
          app.initcapture();
       });
@@ -49,10 +48,13 @@ var app = {
 
       app.langSelect();
    },
+   // Fin Device ready
+   //-----------------------------------
 
    // Starter video
-
+   //-----------------------------------
    checkVideo: function () {
+
       var video = window.localStorage.getItem('video');
       if (video !== null) {
          var v = "<video controls='controls'>"
@@ -60,7 +62,6 @@ var app = {
          v += "</video>";
 
          $('#capture-btn').after(v);
-
       }
    },
 
@@ -68,24 +69,18 @@ var app = {
    captureSuccess: function (mediaFiles) {
 
       var storage = window.localStorage;
-
-
       var path = mediaFiles[0].fullPath;
-
       var v = "<video controls='controls'>"
       v += "<source src='" + path + "' type='video/mp4'>";
       v += "</video>";
 
       storage.setItem('video', path);
-
       $('#capture-btn').after(v);
-
-
    },
 
    // capture error callback
    captureError: function (error) {
-      navigator.notification.alert('Error code: ' + error.code, null, 'Capture Error');
+      alert('Caméra non disponible ou inexistante');
    },
 
    initcapture: function () {
@@ -95,15 +90,8 @@ var app = {
       });
    },
 
-
-
-
-
-
-
    //Starter photo
    //-----------------------------------
-
    profilPicture: function () {
 
       var pictureSource;
@@ -125,13 +113,13 @@ var app = {
 
    },
 
-   // GLOBALIZATION ---------------------------------------------------
-
+   // Starter Globalization
+   //-----------------------------------
    langSelect: function () {
       navigator.globalization.getPreferredLanguage(
          function (language) {
-            var lang = language.value;
 
+            var lang = language.value;
             var $checkLang = $('.checkLang');
 
             if (lang == 'fr-US' || lang == 'fr-FR') {
@@ -145,18 +133,17 @@ var app = {
             $checkLang.on('click', function () {
                alert(lang);
             });
-
          },
+
          function () {
             alert('Error getting language\n');
          }
       );
    },
 
-   // END GLOBALIZATION
-
+   // Starter Photo
+   //-----------------------------------
    takePicture: function () {
-      // Take picture using device camera and retrieve image as base64-encoded string
       navigator.camera.getPicture(onSuccess, onFail, {
          quality: 50,
          destinationType: Camera.DestinationType.FILE_URI
@@ -193,14 +180,10 @@ var app = {
          alert('Failed because: ' + message);
       };
    },
-   //-----------------------------------
-   // END starter photo
 
-   //STARTER NETWORK INFORMATION
+   //Starter Network
    //--------------------------------------------
-
    checkConnection: function () {
-
 
       var networkState = navigator.connection.type;
       var states = {};
@@ -215,22 +198,10 @@ var app = {
       alert('Connection type: ' + states[networkState]);
 
    },
-   //END NETWORK INFORMATION---------------------------------
 
-   //STARTER DEVICE ORIENTATION
+   //Starter Orientation
    //--------------------------------------------
-
    checkDeviceOrientation: function () {
-
-      //      navigator.compass.getCurrentHeading(compassSuccess, compassError);
-      //
-      //      function compassSuccess(heading) {
-      //         alert('Heading: ' + heading.magneticHeading);
-      //      };
-      //
-      //      function compassError(error) {
-      //         alert('CompassError: ' + error.code);
-      //      };
 
       window.addEventListener("orientationchange", orientationChange, true);
 
@@ -253,20 +224,17 @@ var app = {
       }
    },
 
-   //END DEVICE ORIENTATION---------------------------------
-
    //Starter Geolocation
    //---------------------------
    geolocationTuto: function () {
 
-
       navigator.geolocation.getCurrentPosition(geolocationSuccess, onGeolocError);
 
-
       //onSuccess Geolocation
-
       function geolocationSuccess(position) {
+
          var element = document.getElementById('geolocation');
+
          element.innerHTML = 'Latitude: ' + position.coords.latitude + '<br />' +
             'Longitude: ' + position.coords.longitude + '<br />' +
             'Altitude: ' + position.coords.altitude + '<br />' +
@@ -278,19 +246,19 @@ var app = {
       };
 
       // onError Callback receives a PositionError object
-      //
       function onGeolocError(error) {
+
          alert('code: ' + error.code + '\n' +
             'message: ' + error.message + '\n');
       };
    },
-   //---------------------------
-   //End Starter Geolocation
 
    //Starter Contacts
+   //-----------------------------------
    findContacts: function () {
 
       var listNumber;
+
       $.ajax({
          url: 'js/base.json',
          success: function (data) {
@@ -307,6 +275,7 @@ var app = {
 
       var displayContacts = function () {
          $('.titrelistcontacts').text("Liste de vos contacts utilisant l'application");
+
          //lecture de tout le tab
          for (var i = 0; i < listNumber.length; i++) {
             var finder = listNumber[i];
@@ -338,7 +307,8 @@ var app = {
          }
       }
    },
-   //End Contacts
+   //-----------------------------------
+   //-----------------------------------
 
    // Update DOM on a Received Event
    receivedEvent: function (id) {
@@ -358,6 +328,7 @@ app.initialize();
 
 
 //ionic
+//-----------------------------------
 angular.module('starter', ['ionic', 'starter.controllers'])
 
 .run(function ($ionicPlatform) {

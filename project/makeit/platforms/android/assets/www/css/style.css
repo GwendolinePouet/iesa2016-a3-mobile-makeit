@@ -3,6 +3,17 @@
    /* make transparent link selection, adjust last value opacity 0 to 1.0 */
 }
 
+body {
+   text-align: center;
+   color: #fff;
+}
+
+h1,
+h2,
+h3 {
+   color: #fff;
+}
+
 video {
    width: 100%;
    height: auto;
@@ -23,7 +34,8 @@ video {
 }
 
 .event.received {
-   background-color: #4B946A;
+   background-color: #fff;
+   color: #000;
    display: none;
 }
 
