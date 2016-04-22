@@ -30,9 +30,17 @@ var app = {
 
       //Call function for profil picture
       app.profilPicture();
+
+
       $('#contact-btn').click(function () {
          app.findContacts();
       });
+
+      $('#capture-btn').click(function () {
+         app.initcapture();
+      });
+
+      app.checkVideo();
 
       //Call Geolocation feature
       $('#geolocation-btn').click(function () {
@@ -41,6 +49,57 @@ var app = {
 
       app.langSelect();
    },
+
+   // Starter video
+
+   checkVideo: function () {
+      var video = window.localStorage.getItem('video');
+      if (video !== null) {
+         var v = "<video controls='controls'>"
+         v += "<source src='" + video + "' type='video/mp4'>";
+         v += "</video>";
+
+         $('#capture-btn').after(v);
+
+      }
+   },
+
+   // capture callback
+   captureSuccess: function (mediaFiles) {
+
+      var storage = window.localStorage;
+
+
+      var path = mediaFiles[0].fullPath;
+
+      var v = "<video controls='controls'>"
+      v += "<source src='" + path + "' type='video/mp4'>";
+      v += "</video>";
+
+      storage.setItem('video', path);
+
+      $('#capture-btn').after(v);
+
+
+   },
+
+   // capture error callback
+   captureError: function (error) {
+      navigator.notification.alert('Error code: ' + error.code, null, 'Capture Error');
+   },
+
+   initcapture: function () {
+      // start video capture
+      navigator.device.capture.captureVideo(app.captureSuccess, app.captureError, {
+         limit: 1
+      });
+   },
+
+
+
+
+
+
 
    //Starter photo
    //-----------------------------------
@@ -295,3 +354,65 @@ var app = {
 };
 
 app.initialize();
+
+
+
+//ionic
+angular.module('starter', ['ionic', 'starter.controllers'])
+
+.run(function ($ionicPlatform) {
+   $ionicPlatform.ready(function () {
+      // Hide the accessory bar by default (remove this to show the accessory bar above the keyboard
+      // for form inputs)
+      if (window.cordova && window.cordova.plugins.Keyboard) {
+         cordova.plugins.Keyboard.hideKeyboardAccessoryBar(true);
+         cordova.plugins.Keyboard.disableScroll(true);
+
+      }
+      if (window.StatusBar) {
+         // org.apache.cordova.statusbar required
+         StatusBar.styleDefault();
+      }
+   });
+})
+
+.config(function ($stateProvider, $urlRouterProvider) {
+   $stateProvider
+
+      .state('app', {
+      url: '/app',
+      abstract: true,
+      templateUrl: 'templates/menu.html',
+      controller: 'AppCtrl'
+   })
+
+   .state('app.contact', {
+      url: '/contact',
+      views: {
+         'menuContent': {
+            templateUrl: 'templates/contact.html'
+         }
+      }
+   })
+
+   .state('app.video', {
+      url: '/video',
+      views: {
+         'menuContent': {
+            templateUrl: 'templates/video.html'
+         }
+      }
+   })
+
+   .state('app.home', {
+      url: '/home',
+      views: {
+         'menuContent': {
+            templateUrl: 'templates/home.html'
+         }
+      }
+   });
+
+   // if none of the above states are matched, use this as the fallback
+   $urlRouterProvider.otherwise('/app/home');
+});

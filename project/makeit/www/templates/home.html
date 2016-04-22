@@ -1,11 +1,19 @@
 <ion-view view-title="Home">
    <ion-content>
+
       <img src="img/logo.png" alt="#">
       <h1>MakeIT</h1>
       <div id="deviceready" class="blink">
          <p class="event listening">Oups</p>
          <p class="event received">Is Ready</p>
       </div>
+
+      <!-- debut video -->
+      <button id="capture-btn" class="button button-block button-stable">video</button>
+      <!-- Share -->
+      <button onclick="window.plugins.socialsharing.share('MakeIt, retrouvez des tutos sur la vie de tout les jours', null, 'http://reveal-up.fr/img/splash.png', null)" class="button button-block button-positive">Partager</button>
+
+
 
       <!-- debut plugin camera -->
       <div class="camera-box">

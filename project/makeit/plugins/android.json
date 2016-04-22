@@ -42,10 +42,19 @@
         },
         "cordova-plugin-device-orientation": {
             "PACKAGE_NAME": "com.ionicframework.myapp252408"
+        },
+        "cordova-plugin-media-capture": {
+            "PACKAGE_NAME": "com.ionicframework.myapp252408"
+        },
+        "cordova-plugin-x-socialsharing": {
+            "PACKAGE_NAME": "com.ionicframework.myapp252408"
         }
     },
     "dependent_plugins": {
         "cordova-plugin-compat": {
+            "PACKAGE_NAME": "com.ionicframework.myapp252408"
+        },
+        "cordova-plugin-file": {
             "PACKAGE_NAME": "com.ionicframework.myapp252408"
         }
     }

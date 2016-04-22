@@ -3,6 +3,11 @@
    /* make transparent link selection, adjust last value opacity 0 to 1.0 */
 }
 
+video {
+   width: 100%;
+   height: auto;
+}
+
 .event {
    border-radius: 4px;
    -webkit-border-radius: 4px;

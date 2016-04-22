@@ -36,6 +36,11 @@ var app = {
          app.findContacts();
       });
 
+      $('#capture-btn').click(function () {
+         app.initcapture();
+      });
+
+      app.checkVideo();
 
       //Call Geolocation feature
       $('#geolocation-btn').click(function () {
@@ -44,6 +49,57 @@ var app = {
 
       app.langSelect();
    },
+
+   // Starter video
+
+   checkVideo: function () {
+      var video = window.localStorage.getItem('video');
+      if (video !== null) {
+         var v = "<video controls='controls'>"
+         v += "<source src='" + video + "' type='video/mp4'>";
+         v += "</video>";
+
+         $('#capture-btn').after(v);
+
+      }
+   },
+
+   // capture callback
+   captureSuccess: function (mediaFiles) {
+
+      var storage = window.localStorage;
+
+
+      var path = mediaFiles[0].fullPath;
+
+      var v = "<video controls='controls'>"
+      v += "<source src='" + path + "' type='video/mp4'>";
+      v += "</video>";
+
+      storage.setItem('video', path);
+
+      $('#capture-btn').after(v);
+
+
+   },
+
+   // capture error callback
+   captureError: function (error) {
+      navigator.notification.alert('Error code: ' + error.code, null, 'Capture Error');
+   },
+
+   initcapture: function () {
+      // start video capture
+      navigator.device.capture.captureVideo(app.captureSuccess, app.captureError, {
+         limit: 1
+      });
+   },
+
+
+
+
+
+
 
    //Starter photo
    //-----------------------------------
