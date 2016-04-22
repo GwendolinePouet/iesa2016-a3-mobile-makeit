@@ -13,8 +13,8 @@
 ----------------
  
 ####Tcheck up de tous les fichiers demandés :
-1. Etablir une liste de tous les fichiers et User Stories demandés
-2. Vérifier que tous les fichiers ont été réalisés
+1. Etablir une liste de tous les fichiers demandés
+2. Vérifier que tous les fichiers ont été réalisés et commités/pushés
 3. Vérifier par deux personnes différentes les nommages et emplacement des fichiers
 
 ####Ajout du tag en fin de journée:
