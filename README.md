@@ -16,8 +16,6 @@ Liste des membres:
 * Fabien Birba
 * Nicolas Heine
 * Alexis Lavigne
-
-<<<<<<< HEAD
 * Problèmes rencontrés : *
 
 | Critique      |     Plateform   |   Problème |  Solution |
@@ -36,7 +34,3 @@ Problèmes rencontrés :
 * Problème connexion Github via terminal | Supprimer dans le trousseau d'accés du Mac la session Git et les mots de passe liés
 * Problème plugin géolocalisation | Changer la localisation dans l'émulateur Debug > Location > Apple
 * Gestion Pod pour analytics
-
-
-
->>>>>>> bd2a10d60171e8509aba5398507d081a948e0218
